@@ -23,6 +23,13 @@
                         </x-nav-link>
                     </div>
                 @endhasrole
+                @hasrole('admin')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('bookshelf')" :active="request()->routeIs('bookshelf')">
+                        {{ __('Bookshelf') }}
+                        </x-nav-link>
+                    </div>
+                @endhasrole
             </div>
 
             <!-- Settings Dropdown -->

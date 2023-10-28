@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookshelfController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/role', function(){
         return view('role');
     })->name('role')->middleware(['role:mahasiswa']);
+
+    Route::get('/bookshelf', [BookshelfController::class, 'index'])
+    ->name('bookshelf')->middleware(['role:admin']);
 });
 // Route::middleware('auth')->group(function () {
 //     Route::view('/roles', 'role')->name('role')->middleware(['role:pustakawan']);
