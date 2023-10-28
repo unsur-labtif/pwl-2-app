@@ -19,10 +19,13 @@ use Illuminate\Support\Facades\Route;
 //     })->middleware(['role:admin']);
 // });
 
+Route::get('/', function(){
+    return view('welcome');
+});
 Route::middleware('auth')->group(function () {
-    Route::get('/', function(){
-        return view('welcome');
-    })->middleware(['role:admin']);
+    Route::get('/role', function(){
+        return view('role');
+    })->name('role')->middleware(['role:mahasiswa']);
 });
 // Route::middleware('auth')->group(function () {
 //     Route::view('/roles', 'role')->name('role')->middleware(['role:pustakawan']);

@@ -16,6 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @hasrole('mahasiswa')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('role')" :active="request()->routeIs('role')">
+                        {{ __('Role') }}
+                        </x-nav-link>
+                    </div>
+                @endhasrole
             </div>
 
             <!-- Settings Dropdown -->
